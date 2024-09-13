@@ -6,4 +6,5 @@ opencv-python
 scikit-learn
 matplotlib
 seaborn
+tqdm
 -e .
