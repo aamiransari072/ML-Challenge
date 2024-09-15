@@ -12,6 +12,8 @@ from PIL import Image
 from tqdm import tqdm
 
 from featureExtractor import constants
+from tensorflow.keras.applications import VGG16
+from tensorflow.keras.applications.vgg16 import preprocess_input
 
 def common_mistake(unit):
     """
@@ -115,8 +117,10 @@ def normalize_units(value: float, unit: str) -> float:
     
 
 
-    # def processed_images(image_path , image_size):
-    #     try:
-    #         image = Image.open(image_path)
+def get_feature(image_array):
+    vgg_model = VGG16(weights='imagenet', include_top=False)
+    feature = vgg_model(image_array)
+    return feature
+
 
 
